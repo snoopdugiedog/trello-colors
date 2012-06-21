@@ -43,9 +43,18 @@ def selects(colors, start='div.list-card')
   end
 end
 
-def gradient(colors, spec, *indices)
-  l = indices.map{|i| "#{colors[i]}-label"}
-  puts "div.list-card.#{l.join('.')} {"
+def gradient(colors, *indices)
+  classes = indices.map{|i| "#{colors[i]}-label"}
+  sum = 100 - (indices.size-1)*GRADIENT_PADDING
+  length = sum/indices.size
+  start = 0
+  spans = indices.map do |c|
+    s = span c, start, start+length
+    start = start+length+GRADIENT_PADDING
+    s
+  end
+  spec = spans.join(', ')
+  puts "div.list-card.#{classes.join('.')} {"
   puts "    background-image: -moz-linear-gradient(to right, #{spec}) !important;"
   puts "}"
 
@@ -61,22 +70,10 @@ def span(color_index, start, fin)
   "#{color_value color_index} #{start}%, #{color_value color_index} #{fin}%"
 end
 
-def spec(*args)
-  sum = 100 - (args.size-1)*GRADIENT_PADDING
-  length = sum/args.size
-  start = 0
-  spans = args.map do |c|
-    s = span c, start, start+length
-    start = start+length+GRADIENT_PADDING
-    s
-  end
-  spans.join(', ')
-end
-
 def selects_two(colors)
   rest colors, 0 do |i|
     rest colors, i+1 do |i2|
-      gradient(colors, spec(i, i2), i, i2)
+      gradient(colors, i, i2)
     end
   end
 end
@@ -85,8 +82,7 @@ def selects_three(colors)
   rest colors, 0 do |i|
     rest colors, i+1 do |i2|
       rest colors, i2+1 do |i3|
-        gradient(colors, spec(i, i2, i3),
-                 i, i2, i3)
+        gradient(colors, i, i2, i3)
       end
     end
   end
@@ -97,8 +93,7 @@ def selects_four(colors)
     rest colors, i+1 do |i2|
       rest colors, i2+1 do |i3|
         rest colors, i3+1 do |i4|
-          gradient(colors, spec(i, i2, i3, i4),
-                   i, i2, i3, i4)
+          gradient(colors, i, i2, i3, i4)
         end
       end
     end
@@ -111,8 +106,7 @@ def selects_five(colors)
       rest colors, i2+1 do |i3|
         rest colors, i3+1 do |i4|
           rest colors, i4+1 do |i5|
-            gradient(colors, spec(i, i2, i3, i4, i5),
-                     i, i2, i3, i4, i5)
+            gradient(colors, i, i2, i3, i4, i5)
           end
         end
       end
@@ -127,8 +121,7 @@ def selects_six(colors)
         rest colors, i3+1 do |i4|
           rest colors, i4+1 do |i5|
             rest colors, i5+1 do |i6|
-              gradient(colors, spec(i, i2, i3, i4, i5, i6),
-                       i, i2, i3, i4, i5, i6)
+              gradient(colors, i, i2, i3, i4, i5, i6)
             end
           end
         end
