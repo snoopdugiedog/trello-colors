@@ -1,22 +1,4 @@
 
-# colors.each do |card|
-#   colors.each do |label|
-#     if (card == label)
-#       puts <<EOS
-# div.list-card.#{card}-label .card-label.#{label}-label {
-#     display: none !important;
-# }
-# EOS
-#     else
-#       puts <<EOS
-# div.list-card.#{card}-label .card-label.#{label}-label {
-#     display: block !important;
-# }
-# EOS
-#     end
-#   end
-# end
-
 DARK_BACKGROUND = true # if true, the background will be dark
 GRADIENT_PADDING = 15
 
