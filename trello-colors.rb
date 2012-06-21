@@ -35,12 +35,14 @@ def color_value(index)
   end
 end
 
-def selects(colors, start='div.list-card')
-  colors.each_index do |index|
-    puts "#{start}.#{colors[index]}-label {"
-    puts "    background: #{color_value index} !important;"
-    puts "}"
-  end
+def background(colors, index)
+  puts "div.list-card.#{colors[index]}-label {"
+  puts "    background: #{color_value index} !important;"
+  puts "}"
+end
+
+def span(color_index, start, fin)
+  "#{color_value color_index} #{start}%, #{color_value color_index} #{fin}%"
 end
 
 def gradient(colors, *indices)
@@ -66,60 +68,17 @@ def rest(array,start=0)
   end
 end
 
-def span(color_index, start, fin)
-  "#{color_value color_index} #{start}%, #{color_value color_index} #{fin}%"
-end
-
-def selects_two(colors)
+def create_styles(colors)
   rest colors, 0 do |i|
+    background(colors, i)
     rest colors, i+1 do |i2|
       gradient(colors, i, i2)
-    end
-  end
-end
-
-def selects_three(colors)
-  rest colors, 0 do |i|
-    rest colors, i+1 do |i2|
       rest colors, i2+1 do |i3|
         gradient(colors, i, i2, i3)
-      end
-    end
-  end
-end
-
-def selects_four(colors)
-  rest colors, 0 do |i|
-    rest colors, i+1 do |i2|
-      rest colors, i2+1 do |i3|
         rest colors, i3+1 do |i4|
           gradient(colors, i, i2, i3, i4)
-        end
-      end
-    end
-  end
-end
-
-def selects_five(colors)
-  rest colors, 0 do |i|
-    rest colors, i+1 do |i2|
-      rest colors, i2+1 do |i3|
-        rest colors, i3+1 do |i4|
           rest colors, i4+1 do |i5|
             gradient(colors, i, i2, i3, i4, i5)
-          end
-        end
-      end
-    end
-  end
-end
-
-def selects_six(colors)
-  rest colors, 0 do |i|
-    rest colors, i+1 do |i2|
-      rest colors, i2+1 do |i3|
-        rest colors, i3+1 do |i4|
-          rest colors, i4+1 do |i5|
             rest colors, i5+1 do |i6|
               gradient(colors, i, i2, i3, i4, i5, i6)
             end
@@ -142,17 +101,7 @@ if DARK_BACKGROUND
 EOS
 end
 
-selects colors
-puts '/* two colors */'
-selects_two colors
-puts '/* three colors */'
-selects_three colors
-puts '/* four colors */'
-selects_four colors
-puts '/* five colors */'
-selects_five colors
-puts '/* six colors */'
-selects_six colors
+create_styles colors
 
 puts <<EOS
 .card-labels {
