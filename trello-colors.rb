@@ -3,6 +3,21 @@
 # nice background colors to trello cards based on the labels
 
 DARK_BACKGROUND = false # if true, the background will be dark
+PLATFORM = 'moz'
+
+ARGV.each do |arg|
+  case arg
+  when 'light':
+      DARK_BACKGROUND = false
+  when 'dark':
+      DARK_BACKGROUND = true
+  when 'moz':
+      PLATFORM = 'moz'
+  when 'webkit':
+      PLATFORM = 'webkit'
+  end
+end
+
 GRADIENT_PADDING = 20
 
 LIGHTNESS = 90 # for light layout
@@ -60,7 +75,7 @@ def gradient(colors, *indices)
   end
   spec = spans.join(', ')
   puts "div.list-card.#{classes.join('.')} {"
-  puts "    background-image: -moz-linear-gradient(to right, #{spec}) !important;"
+  puts "    background-image: -#{PLATFORM}-linear-gradient(to right, #{spec}) !important;"
   puts "}"
 
 end
