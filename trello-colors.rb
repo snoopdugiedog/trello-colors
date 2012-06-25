@@ -1,9 +1,9 @@
 
 DARK_BACKGROUND = true # if true, the background will be dark
-GRADIENT_PADDING = 15
+GRADIENT_PADDING = 20
 
 LIGHTNESS = 90 # for light layout
-DARKNESS = 20 # for dark background layout
+DARKNESS = 15 # for dark background layout
 
 def colors
   %w[purple green yellow orange blue red]
@@ -95,7 +95,7 @@ if DARK_BACKGROUND
     background: black !important;
     color: white !important;
 }
-.list-card a {
+.list-card-title {
     color: #EEE !important;
 }
 EOS
