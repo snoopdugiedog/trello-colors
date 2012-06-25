@@ -78,7 +78,7 @@ def gradient(colors, *indices)
   end
   spec = spans.join(', ')
   puts "div.list-card.#{classes.join('.')} {"
-  puts "    background-image: -#{PLATFORM}-linear-gradient(to right, #{spec}) !important;"
+  puts "    background-image: -#{PLATFORM}-linear-gradient(left, #{spec}) !important;"
   puts "}"
 
 end
