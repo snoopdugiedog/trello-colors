@@ -1,4 +1,4 @@
-== Trello Colors
+# Trello Colors
 
 We use labels extensively, but those little lines are hard to distinguish.
 This project is to put background gradients behind the trello card that denote the labels.
@@ -9,7 +9,7 @@ to be applied across the board.
 
 You can then either add the css to your user styles in chrome, or using stylish in firefox.
 
-== Defaults
+## Defaults
 
 I threw in a couple default css files, in case you don't want to go through the trouble of
 running the ruby code. The seem to work pretty well, but the dark background could probably
