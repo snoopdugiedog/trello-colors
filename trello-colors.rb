@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# Running this will create css which you can then put in your browser to add
+# nice background colors to trello cards based on the labels
 
 DARK_BACKGROUND = false # if true, the background will be dark
 GRADIENT_PADDING = 20
