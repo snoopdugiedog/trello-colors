@@ -2,21 +2,24 @@
 # Running this will create css which you can then put in your browser to add
 # nice background colors to trello cards based on the labels
 
-DARK_BACKGROUND = false # if true, the background will be dark
-PLATFORM = 'moz'
+dark = false # if true, the background will be dark
+platform = 'moz'
 
 ARGV.each do |arg|
   case arg
-  when 'light':
-      DARK_BACKGROUND = false
-  when 'dark':
-      DARK_BACKGROUND = true
-  when 'moz':
-      PLATFORM = 'moz'
-  when 'webkit':
-      PLATFORM = 'webkit'
+  when 'light'
+      dark = false
+  when 'dark'
+      dark = true
+  when 'moz'
+      platform = 'moz'
+  when 'webkit'
+      platform = 'webkit'
   end
 end
+
+DARK_BACKGROUND = dark
+PLATFORM = platform
 
 GRADIENT_PADDING = 20
 
