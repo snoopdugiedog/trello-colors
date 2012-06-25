@@ -1,5 +1,5 @@
 
-DARK_BACKGROUND = true # if true, the background will be dark
+DARK_BACKGROUND = false # if true, the background will be dark
 GRADIENT_PADDING = 20
 
 LIGHTNESS = 90 # for light layout
