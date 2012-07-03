@@ -14,3 +14,5 @@ You can then either add the css to your user styles in chrome, or using stylish 
 I threw in a couple default css files, in case you don't want to go through the trouble of
 running the ruby code. The seem to work pretty well, but the dark background could probably
 use some work, perhaps a different font or font weight or something.
+
+You can update these files with your own modifications by running `ruby trello-colors.rb all`
