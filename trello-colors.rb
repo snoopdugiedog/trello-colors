@@ -100,7 +100,7 @@ class TrelloColors
   end
 
   def filename
-    "#{@platform}-#{@dark ? 'dark' : 'light'}-background.css"
+    "#{@platform}-#{@dark_background ? 'dark' : 'light'}-background.css"
   end
 
   def run(filename)
