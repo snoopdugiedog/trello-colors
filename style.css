@@ -1,0 +1,12 @@
+
+.list-card .card-labels {
+    margin: -6px -8px 6px -8px !important;
+    width: 100%;
+}
+.list-card .card-label {
+    height: 1em !important;
+    padding: 0 8px !important;
+}
+.list-card .card-label {
+    width: 100% !important;
+}
