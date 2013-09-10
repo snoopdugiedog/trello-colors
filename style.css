@@ -9,6 +9,6 @@
 .list-card .card-label {
     width: 100% !important;
 }
-.card-operation {
-	margin-top: 10px !important;    
+.list-card .card-operation {
+	z-index: 50 !important;
 }
