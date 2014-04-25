@@ -11,6 +11,6 @@
     font-size: 10px !important;
     font-weight: normal !important;
 }
-.list-card .card-operation {
+.list-card .list-card-operation {
     z-index: 50 !important;
 }
