@@ -13,4 +13,5 @@
 }
 .list-card .list-card-operation {
     z-index: 50 !important;
+    background-color: rgba(230, 230, 230, 0.5) !important;
 }
